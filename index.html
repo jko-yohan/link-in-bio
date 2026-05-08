@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754582635962628" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Link-in-Bio Page Generator - No Signup Required</title>
+    <meta name="description" content="Create a beautiful link-in-bio page for free. No signup, no hosting needed. Download HTML and use anywhere. Linktree alternative.">
+    <meta name="keywords" content="link in bio generator, free linktree alternative, bio link maker, instagram bio link">
+    <meta property="og:title" content="Free Link-in-Bio Page Generator">
+    <meta property="og:description" content="Create beautiful bio link pages for free. No signup required.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://jko-yohan.github.io/link-in-bio/">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Link-in-<span>Bio</span> Generator</h1>
+            <p class="tagline">Create your bio link page for free. No signup. Download HTML.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="editor-layout">
+            <div class="editor-panel">
+                <h2>Editor</h2>
+
+                <div class="field-group">
+                    <label>Profile Name</label>
+                    <input type="text" id="profile-name" placeholder="Your Name" oninput="updatePreview()">
+                </div>
+
+                <div class="field-group">
+                    <label>Bio / Description</label>
+                    <textarea id="profile-bio" placeholder="A short bio about you..." oninput="updatePreview()"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label>Profile Image URL (optional)</label>
+                    <input type="text" id="profile-image" placeholder="https://example.com/photo.jpg" oninput="updatePreview()">
+                </div>
+
+                <div class="field-group">
+                    <label>Theme</label>
+                    <div class="theme-selector">
+                        <button class="theme-btn active" data-theme="minimal" onclick="setTheme('minimal')">Minimal</button>
+                        <button class="theme-btn" data-theme="gradient" onclick="setTheme('gradient')">Gradient</button>
+                        <button class="theme-btn" data-theme="dark" onclick="setTheme('dark')">Dark</button>
+                        <button class="theme-btn" data-theme="neon" onclick="setTheme('neon')">Neon</button>
+                        <button class="theme-btn" data-theme="pastel" onclick="setTheme('pastel')">Pastel</button>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label>Links</label>
+                    <div id="links-container"></div>
+                    <button class="add-link-btn" onclick="addLink()">+ Add Link</button>
+                </div>
+
+                <div class="export-actions">
+                    <button onclick="downloadHTML()">Download HTML</button>
+                    <button onclick="copyHTML()" class="secondary">Copy HTML Code</button>
+                </div>
+            </div>
+
+            <div class="preview-panel">
+                <h2>Preview</h2>
+                <div class="phone-frame">
+                    <iframe id="preview-frame" srcdoc=""></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-slot">
+            <div class="ad-placeholder"><p>Advertisement</p></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Link-in-Bio Generator. All processing runs locally in your browser. No data is sent to any server.</p>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #242836;
+    --border: #2e3345;
+    --text: #e4e7ef;
+    --text-muted: #8b92a8;
+    --primary: #6c63ff;
+    --primary-hover: #5a52d5;
+    --accent: #00d4aa;
+    --radius: 10px;
+}
+
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+header { padding: 32px 0 16px; text-align: center; }
+h1 { font-size: 2rem; font-weight: 700; }
+h1 span { color: var(--primary); }
+.tagline { color: var(--text-muted); font-size: 0.95rem; margin-top: 4px; }
+
+.editor-layout { display: grid; grid-template-columns: 1fr 380px; gap: 30px; margin-top: 24px; }
+.editor-panel h2, .preview-panel h2 { font-size: 1.1rem; margin-bottom: 16px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; }
+
+.field-group { margin-bottom: 16px; }
+.field-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.field-group input, .field-group textarea {
+    width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    color: var(--text); padding: 10px 14px; font-size: 0.9rem; outline: none; font-family: inherit;
+}
+.field-group input:focus, .field-group textarea:focus { border-color: var(--primary); }
+.field-group textarea { resize: vertical; min-height: 60px; }
+
+.theme-selector { display: flex; gap: 6px; flex-wrap: wrap; }
+.theme-btn {
+    padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface);
+    color: var(--text-muted); font-size: 0.8rem; cursor: pointer; font-weight: 500;
+}
+.theme-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+.link-item { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+.link-item input { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: 8px 12px; font-size: 0.85rem; outline: none; }
+.link-item input:focus { border-color: var(--primary); }
+.link-remove { background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; padding: 4px 8px; }
+.link-remove:hover { color: #ff6b6b; }
+
+.add-link-btn { width: 100%; padding: 10px; border: 1px dashed var(--border); border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 0.85rem; }
+.add-link-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.export-actions { display: flex; gap: 8px; margin-top: 20px; }
+.export-actions button { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; background: var(--primary); color: white; }
+.export-actions button.secondary { background: var(--surface2); color: var(--text-muted); }
+.export-actions button:hover { opacity: 0.9; }
+
+.phone-frame {
+    width: 340px; height: 620px; border: 3px solid var(--border); border-radius: 30px; overflow: hidden;
+    background: white; margin: 0 auto; position: sticky; top: 20px;
+}
+.phone-frame iframe { width: 100%; height: 100%; border: none; }
+
+.ad-slot { margin: 40px 0; text-align: center; }
+.ad-placeholder { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 40px; color: var(--text-muted); font-size: 0.85rem; }
+
+footer { border-top: 1px solid var(--border); padding: 24px 0; text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 40px; }
+
+.toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--accent); color: var(--bg); padding: 10px 24px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; opacity: 0; transition: all 0.3s; z-index: 1000; }
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+@media (max-width: 768px) {
+    .editor-layout { grid-template-columns: 1fr; }
+    .phone-frame { position: static; width: 100%; max-width: 340px; }
+}
